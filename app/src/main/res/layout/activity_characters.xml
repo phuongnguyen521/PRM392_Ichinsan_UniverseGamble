@@ -4,6 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".CharactersActivity">
+
+    <ListView
+        android:id="@+id/lvCharacters"
+        android:layout_width="303dp"
+        android:layout_height="430dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="29dp"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSumOfCharacters" />
+
+    <TextView
+        android:id="@+id/tvSumOfCharacters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="51dp"
+        android:fontFamily="@font/martel_sans_extrabold"
+        android:text="Chosen Characters:"
+        android:textColor="#A59E9E"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="116dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@color/button_background_color_characters"
+        android:text="Next"
+        android:textColor="@color/button_text_color_characters"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lvCharacters" />
+
+    <TextView
+        android:id="@+id/txtSum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="51dp"
+        android:fontFamily="@font/martel_sans_extrabold"
+        android:text="0/3"
+        android:textColor="#A59E9E"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/tvSumOfCharacters"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="14dp"
+        android:text="Exit"
+        android:backgroundTint="#7E6E6E"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNext" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

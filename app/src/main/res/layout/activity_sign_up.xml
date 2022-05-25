@@ -4,15 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_backgound"
     tools:context=".SignUpActivity">
 
+
     <TextView
+        android:id="@+id/txTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="177dp"
+        android:fontFamily="@font/martel_sans_extrabold"
+        android:text="Universe Gamble"
+        android:textAlignment="center"
+        android:textColor="#F6F5F5"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    https://www.geeksforgeeks.org/how-to-change-the-background-color-of-button-in-android-using-colorstatelist/-->
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="319dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="72dp"
+        android:background="@drawable/rounded_edittext_states"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txTitle" />
+
+    <Button
+        android:id="@+id/btnGo"
+        android:layout_width="111dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="167dp"
+        android:backgroundTint="@color/button_background_color"
+        android:text="Go"
+        android:textColor="@color/button_text_color"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.347"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUsername" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
