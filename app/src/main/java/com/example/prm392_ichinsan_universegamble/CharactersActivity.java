@@ -144,7 +144,6 @@ public class CharactersActivity extends AppCompatActivity {
 
         //Show the Alert Dialog box
         alertDialog.show();
-
     }
 
     private void populateCharactersList(){

@@ -75,10 +75,6 @@ public class GambleActivity extends AppCompatActivity {
                 intent = new Intent(GambleActivity.this, CharactersActivity.class);
                 int counter = 1;
                 intent.putExtra("username",username);
-                for (Character character : characters) {
-                    intent.putExtra("character" + counter, character);
-                    counter++;
-                }
                 startActivity(intent);
                 finish();
                 return true;
