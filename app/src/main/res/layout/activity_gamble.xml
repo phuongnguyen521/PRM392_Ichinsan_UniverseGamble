@@ -7,113 +7,115 @@
     android:background="@color/white"
     tools:context=".GambleActivity">
 
+
     <ImageView
         android:id="@+id/ivCharacter3"
-        android:layout_width="72dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="28dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbCharacter3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toEndOf="@+id/cbCharacter3"
+        app:layout_constraintTop_toBottomOf="@+id/ivCharacter2"
         app:srcCompat="@drawable/captainamerica" />
-
-    <TextView
-        android:id="@+id/tvCharacterName3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textColor="#F01E14"
-        app:layout_constraintStart_toEndOf="@+id/ivCharacter3"
-        app:layout_constraintTop_toBottomOf="@+id/tvGambledCoins3" />
 
     <TextView
         android:id="@+id/tvGambledCoins3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="39dp"
         android:text="0"
-        android:textColor="#FFEB3B"
-        app:layout_constraintStart_toEndOf="@+id/cbCharacter3"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/tvCharacterName3"
         app:layout_constraintTop_toBottomOf="@+id/sbCharacter2" />
 
     <SeekBar
         android:id="@+id/sbCharacter3"
-        android:layout_width="227dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="14dp"
-        android:background="#8BC34A"
+        android:layout_width="263dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="9dp"
+        android:background="#F3815D"
         app:layout_constraintStart_toEndOf="@+id/ivCharacter3"
-        app:layout_constraintTop_toBottomOf="@+id/tvCharacterName3" />
+        app:layout_constraintTop_toBottomOf="@+id/tvGambledCoins3" />
+
+    <TextView
+        android:id="@+id/tvCharacterName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="39dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ivCharacter3"
+        app:layout_constraintTop_toBottomOf="@+id/sbCharacter2" />
 
     <CheckBox
         android:id="@+id/cbCharacter3"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="34dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivCharacter2" />
+        app:layout_constraintTop_toBottomOf="@+id/cbCharacter2" />
 
     <ImageView
         android:id="@+id/ivCharacter2"
-        android:layout_width="72dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="1dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbCharacter2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="57dp"
+        app:layout_constraintStart_toEndOf="@+id/cbCharacter2"
+        app:layout_constraintTop_toBottomOf="@+id/ivCharacter1"
         app:srcCompat="@drawable/captainamerica" />
+
+    <CheckBox
+        android:id="@+id/cbCharacter2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="59dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbCharacter1" />
 
     <TextView
         android:id="@+id/tvGambledCoins2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="47dp"
         android:text="0"
-        android:textColor="#FFEB3B"
-        app:layout_constraintStart_toEndOf="@+id/cbCharacter2"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/tvCharacterName2"
         app:layout_constraintTop_toBottomOf="@+id/sbCharacter1" />
 
     <SeekBar
         android:id="@+id/sbCharacter2"
-        android:layout_width="227dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="14dp"
-        android:background="#8BC34A"
+        android:layout_width="263dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="9dp"
+        android:background="#F3815D"
         app:layout_constraintStart_toEndOf="@+id/ivCharacter2"
-        app:layout_constraintTop_toBottomOf="@+id/tvCharacterName2" />
-
-    <CheckBox
-        android:id="@+id/cbCharacter2"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="33dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivCharacter1" />
+        app:layout_constraintTop_toBottomOf="@+id/tvGambledCoins2" />
 
     <TextView
         android:id="@+id/tvCharacterName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="47dp"
         android:text="TextView"
-        android:textColor="#F01E14"
+        android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/ivCharacter2"
-        app:layout_constraintTop_toBottomOf="@+id/tvGambledCoins2" />
+        app:layout_constraintTop_toBottomOf="@+id/sbCharacter1" />
 
     <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/martel_sans_extrabold"
         android:text="Welcome"
         android:textColor="#F01E14"
@@ -121,124 +123,104 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/ivPocket"
+        android:layout_width="61dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWelcome"
+        app:srcCompat="@drawable/coin" />
+
     <TextView
         android:id="@+id/tvCoins"
-        android:layout_width="137dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="21dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/martel_sans_extrabold"
         android:text="$100"
         android:textColor="#8BC34A"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/ivPocket"
         app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="66dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/coin" />
-
-    <SeekBar
-        android:id="@+id/sbCharacter1"
-        android:layout_width="227dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="14dp"
-        android:background="#8BC34A"
-        app:layout_constraintStart_toEndOf="@+id/ivCharacter1"
-        app:layout_constraintTop_toBottomOf="@+id/tvCharacterName1" />
-
-    <TextView
-        android:id="@+id/tvCharacterName1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="19dp"
-        android:text="TextView"
-        android:textColor="#F01E14"
-        app:layout_constraintStart_toEndOf="@+id/ivCharacter1"
-        app:layout_constraintTop_toBottomOf="@+id/tvGambledCoins1" />
-
-    <ImageView
-        android:id="@+id/ivCharacter1"
-        android:layout_width="72dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="28dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbCharacter1"
-        app:srcCompat="@drawable/captainamerica" />
-
-    <TextView
-        android:id="@+id/tvGambledCoins1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="29dp"
-        android:text="0"
-        android:textColor="#FFEB3B"
-        app:layout_constraintStart_toEndOf="@+id/cbCharacter1"
-        app:layout_constraintTop_toBottomOf="@+id/etGambedCoins" />
-
-    <CheckBox
-        android:id="@+id/cbCharacter1"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="108dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
         android:id="@+id/etGambedCoins"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="29dp"
         android:ems="10"
-        android:hint="How much coins?"
+        android:background="@color/button_background_gamble"
+        android:hint="How much deposit?"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textColor="#FFEB3B"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCoins" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPocket" />
 
     <Button
         android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="41dp"
-        android:text="Start"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="@color/button_background_color_characters"
+        android:text="Start"
         android:textColor="@color/button_text_color_characters"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sbCharacter3" />
+        app:layout_constraintTop_toBottomOf="@+id/etGambedCoins" />
 
-    <Button
-        android:id="@+id/btnExitGamble"
+    <SeekBar
+        android:id="@+id/sbCharacter1"
+        android:layout_width="263dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="9dp"
+        android:background="#F3815D"
+        app:layout_constraintStart_toEndOf="@+id/ivCharacter1"
+        app:layout_constraintTop_toBottomOf="@+id/tvCharacterName1" />
+
+    <ImageView
+        android:id="@+id/ivCharacter1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintStart_toEndOf="@+id/cbCharacter1"
+        app:layout_constraintTop_toBottomOf="@+id/etGambedCoins"
+        app:srcCompat="@drawable/captainamerica" />
+
+    <TextView
+        android:id="@+id/tvCharacterName1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="24dp"
-        android:text="Exit"
-        app:layout_constraintStart_toEndOf="@+id/tvWelcome"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnDone"
-        android:layout_width="82dp"
-        android:layout_height="48dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="116dp"
-        android:backgroundTint="@color/button_background_color_characters"
-        android:text="Done"
-        android:textColor="@color/button_text_color_characters"
-        app:layout_constraintStart_toEndOf="@+id/etGambedCoins"
-        app:layout_constraintTop_toBottomOf="@+id/btnExitGamble" />
+        android:layout_marginTop="47dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/ivCharacter1"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
+
+    <TextView
+        android:id="@+id/tvGambledCoins1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="47dp"
+        android:text="0"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/tvCharacterName1"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
+
+    <CheckBox
+        android:id="@+id/cbCharacter1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="121dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etGambedCoins" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

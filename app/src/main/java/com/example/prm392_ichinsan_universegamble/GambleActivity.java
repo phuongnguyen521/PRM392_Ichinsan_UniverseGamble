@@ -1,5 +1,6 @@
 package com.example.prm392_ichinsan_universegamble;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -27,9 +31,7 @@ public class GambleActivity extends AppCompatActivity {
     private ArrayList<Character> characters;
     private String username;
     private TextView tvCoins;
-    private Button btnExitGamble;
     private Button btnStart;
-    private Button btnDone;
     private EditText etGambedCoins;
     private TextView tvWelcome;
     private String cbName;
@@ -59,9 +61,42 @@ public class GambleActivity extends AppCompatActivity {
 
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.game_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()){
+            case R.id.itemChangeCharacters:
+                intent = new Intent(GambleActivity.this, CharactersActivity.class);
+                int counter = 1;
+                intent.putExtra("username",username);
+                for (Character character : characters) {
+                    intent.putExtra("character" + counter, character);
+                    counter++;
+                }
+                startActivity(intent);
+                finish();
+                return true;
+            case R.id.itemExit:
+                intent = new Intent(GambleActivity.this, SignUpActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamble);
+
 
         setUsername();
         if (checkUsername()){
@@ -72,54 +107,23 @@ public class GambleActivity extends AppCompatActivity {
 
         //Anh xa
         btnStart = (Button) findViewById(R.id.btnStart);
-        btnDone = (Button) findViewById(R.id.btnDone);
         etGambedCoins = (EditText) findViewById(R.id.etGambedCoins);
-        setEtGambleAndButtonDone(false);
-        btnExitGamble = (Button) findViewById(R.id.btnExitGamble);
+        setEtGambleAndStartButton(false);
         tvWelcome = (TextView) findViewById(R.id.tvWelcome);
         tvWelcome.setText(tvWelcome.getText().toString() + " " + username);
         tvCoins = (TextView) findViewById(R.id.tvCoins);
-
-        btnExitGamble.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(GambleActivity.this, SignUpActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        btnDone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!TextUtils.isEmpty(cbName)){
-                    switch (cbName){
-                        case "cbCharacter1":
-                            tvGambledCoins1.setText(etGambedCoins.getText().toString());
-                            break;
-                        case "cbCharacter2":
-                            tvGambledCoins2.setText(etGambedCoins.getText().toString());
-                            break;
-                        case "cbCharacter3":
-                            tvGambledCoins3.setText(etGambedCoins.getText().toString());
-                            break;
-                    }
-                    calculatePocket(Integer.parseInt(etGambedCoins.getText().toString()), true);
-                    setEtGambleAndButtonDone(false);
-                }
-            }
-        });
 
         cbCharacter1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (cbCharacter1.isChecked()){
-                    setEtGambleAndButtonDone(true);
+                    setEtGambleAndStartButton(true);
                     cbCharacter2.setEnabled(false);
                     cbCharacter3.setEnabled(false);
                     cbName = "cbCharacter1";
                 } else {
                     calculatePocket(Integer.parseInt(tvGambledCoins1.getText().toString()), false);
+                    setEtGambleAndStartButton(false);
                     tvGambledCoins1.setText("0");
                     cbCharacter2.setEnabled(true);
                     cbCharacter3.setEnabled(true);
@@ -132,13 +136,14 @@ public class GambleActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (cbCharacter2.isChecked()){
-                    setEtGambleAndButtonDone(true);
+                    setEtGambleAndStartButton(true);
                     cbCharacter1.setEnabled(false);
                     cbCharacter3.setEnabled(false);
                     cbName = "cbCharacter2";
                 } else {
                     calculatePocket(Integer.parseInt(tvGambledCoins2.getText().toString()), false);
                     tvGambledCoins2.setText("0");
+                    setEtGambleAndStartButton(false);
                     cbCharacter1.setEnabled(true);
                     cbCharacter3.setEnabled(true);
                     cbName = null;
@@ -150,13 +155,14 @@ public class GambleActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (cbCharacter3.isChecked()){
-                    setEtGambleAndButtonDone(true);
+                    setEtGambleAndStartButton(true);
                     cbCharacter2.setEnabled(false);
                     cbCharacter1.setEnabled(false);
                     cbName = "cbCharacter3";
                 } else {
                     calculatePocket(Integer.parseInt(tvGambledCoins3.getText().toString()), false);
                     tvGambledCoins3.setText("0");
+                    setEtGambleAndStartButton(false);
                     cbCharacter1.setEnabled(true);
                     cbCharacter2.setEnabled(true);
                     cbName = null;
@@ -167,6 +173,8 @@ public class GambleActivity extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                setDeposit();
+
                 cbCharacter1.setChecked(false);
                 cbCharacter2.setChecked(false);
                 cbCharacter3.setChecked(false);
@@ -178,7 +186,12 @@ public class GambleActivity extends AppCompatActivity {
                     if (tvCoins.getText().toString().equals("$0"))
                     {
                         Intent intent = new Intent(GambleActivity.this, BrokeActivity.class);
-                        intent.putExtra("username", username);
+                        int counter = 1;
+                        intent.putExtra("username",username);
+                        for (Character character : characters) {
+                            intent.putExtra("character" + counter, character);
+                            counter++;
+                        }
                         startActivity(intent);
                         finish();
                     }
@@ -308,9 +321,9 @@ public class GambleActivity extends AppCompatActivity {
         ivCharacter.setImageDrawable(getResources().getDrawable(character.getImage()));
     }
 
-    private void setEtGambleAndButtonDone(boolean flag){
+    private void setEtGambleAndStartButton(boolean flag){
         etGambedCoins.setEnabled(flag);
-        btnDone.setEnabled(flag);
+        btnStart.setEnabled(flag);
         if (!flag){
             etGambedCoins.setText("");
         }
@@ -333,6 +346,24 @@ public class GambleActivity extends AppCompatActivity {
         } else {
             btnStart.setEnabled(false);
         }
+    }
+
+    public void setDeposit(){
+        if (!TextUtils.isEmpty(cbName)){
+            switch (cbName) {
+                case "cbCharacter1":
+                    tvGambledCoins1.setText(etGambedCoins.getText().toString());
+                    break;
+                case "cbCharacter2":
+                    tvGambledCoins2.setText(etGambedCoins.getText().toString());
+                    break;
+                case "cbCharacter3":
+                    tvGambledCoins3.setText(etGambedCoins.getText().toString());
+                    break;
+            }
+        }
+        calculatePocket(Integer.parseInt(etGambedCoins.getText().toString()), true);
+        setEtGambleAndStartButton(false);
     }
 
     private boolean isTheFirst(){
