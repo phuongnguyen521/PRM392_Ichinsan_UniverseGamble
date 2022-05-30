@@ -8,7 +8,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -35,6 +38,7 @@ public class GambleActivity extends AppCompatActivity {
     private EditText etGambedCoins;
     private TextView tvWelcome;
     private String cbName;
+    private int deposit;
 
     //Checkbox
     private CheckBox cbCharacter1;
@@ -42,9 +46,6 @@ public class GambleActivity extends AppCompatActivity {
     private CheckBox cbCharacter3;
 
     //TextView
-    private TextView tvGambledCoins1;
-    private TextView tvGambledCoins2;
-    private TextView tvGambledCoins3;
     private TextView tvCharacterName1;
     private TextView tvCharacterName2;
     private TextView tvCharacterName3;
@@ -118,9 +119,7 @@ public class GambleActivity extends AppCompatActivity {
                     cbCharacter3.setEnabled(false);
                     cbName = "cbCharacter1";
                 } else {
-                    calculatePocket(Integer.parseInt(tvGambledCoins1.getText().toString()), false);
                     setEtGambleAndStartButton(false);
-                    tvGambledCoins1.setText("0");
                     cbCharacter2.setEnabled(true);
                     cbCharacter3.setEnabled(true);
                     cbName = null;
@@ -137,8 +136,6 @@ public class GambleActivity extends AppCompatActivity {
                     cbCharacter3.setEnabled(false);
                     cbName = "cbCharacter2";
                 } else {
-                    calculatePocket(Integer.parseInt(tvGambledCoins2.getText().toString()), false);
-                    tvGambledCoins2.setText("0");
                     setEtGambleAndStartButton(false);
                     cbCharacter1.setEnabled(true);
                     cbCharacter3.setEnabled(true);
@@ -156,8 +153,6 @@ public class GambleActivity extends AppCompatActivity {
                     cbCharacter1.setEnabled(false);
                     cbName = "cbCharacter3";
                 } else {
-                    calculatePocket(Integer.parseInt(tvGambledCoins3.getText().toString()), false);
-                    tvGambledCoins3.setText("0");
                     setEtGambleAndStartButton(false);
                     cbCharacter1.setEnabled(true);
                     cbCharacter2.setEnabled(true);
@@ -166,11 +161,34 @@ public class GambleActivity extends AppCompatActivity {
             }
         });
 
+        etGambedCoins.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                try {
+                    deposit = Integer.parseInt(etGambedCoins.getText().toString());
+                } catch (Exception e){
+                    deposit = 0;
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                try {
+                    deposit = Integer.parseInt(etGambedCoins.getText().toString());
+                } catch (Exception e){
+                    deposit = 0;
+                }
+            }
+        });
+
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setDeposit();
-
                 cbCharacter1.setChecked(false);
                 cbCharacter2.setChecked(false);
                 cbCharacter3.setChecked(false);
@@ -179,6 +197,7 @@ public class GambleActivity extends AppCompatActivity {
                     calculatePocket(20,false);
                     setDialogGamble("You Won!", "Your pocket increases $20");
                 } else {
+                    calculatePocket(deposit, true);
                     if (tvCoins.getText().toString().equals("$0"))
                     {
                         Intent intent = new Intent(GambleActivity.this, BrokeActivity.class);
@@ -199,12 +218,10 @@ public class GambleActivity extends AppCompatActivity {
                 cbCharacter1.setEnabled(true);
                 cbCharacter2.setEnabled(true);
                 cbCharacter3.setEnabled(true);
-                tvGambledCoins1.setText("0");
-                tvGambledCoins2.setText("0");
-                tvGambledCoins3.setText("0");
                 sbCharacter1.setProgress(0);
                 sbCharacter2.setProgress(0);
                 sbCharacter3.setProgress(0);
+                setEtGambleAndStartButton(false);
             }
         });
 
@@ -284,9 +301,6 @@ public class GambleActivity extends AppCompatActivity {
         cbCharacter3 = (CheckBox) findViewById(R.id.cbCharacter3);
 
         //Set TextView
-        tvGambledCoins1 = (TextView) findViewById(R.id.tvGambledCoins1);
-        tvGambledCoins2 = (TextView) findViewById(R.id.tvGambledCoins2);
-        tvGambledCoins3 = (TextView) findViewById(R.id.tvGambledCoins3);
         tvCharacterName1 = (TextView) findViewById(R.id.tvCharacterName1);
         tvCharacterName2 = (TextView) findViewById(R.id.tvCharacterName2);
         tvCharacterName3 = (TextView) findViewById(R.id.tvCharacterName3);
@@ -337,29 +351,11 @@ public class GambleActivity extends AppCompatActivity {
             total += money;
         }
         tvCoins.setText("$"+total);
-        if (cbCharacter1.isChecked() || cbCharacter2.isChecked() || cbCharacter3.isChecked()){
-            btnStart.setEnabled(true);
-        } else {
-            btnStart.setEnabled(false);
-        }
-    }
-
-    public void setDeposit(){
-        if (!TextUtils.isEmpty(cbName)){
-            switch (cbName) {
-                case "cbCharacter1":
-                    tvGambledCoins1.setText(etGambedCoins.getText().toString());
-                    break;
-                case "cbCharacter2":
-                    tvGambledCoins2.setText(etGambedCoins.getText().toString());
-                    break;
-                case "cbCharacter3":
-                    tvGambledCoins3.setText(etGambedCoins.getText().toString());
-                    break;
-            }
-        }
-        calculatePocket(Integer.parseInt(etGambedCoins.getText().toString()), true);
-        setEtGambleAndStartButton(false);
+//        if (cbCharacter1.isChecked() || cbCharacter2.isChecked() || cbCharacter3.isChecked()){
+//            btnStart.setEnabled(true);
+//        } else {
+//            btnStart.setEnabled(false);
+//        }
     }
 
     private boolean isTheFirst(){

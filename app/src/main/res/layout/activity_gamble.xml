@@ -18,17 +18,6 @@
         app:layout_constraintTop_toBottomOf="@+id/ivCharacter2"
         app:srcCompat="@drawable/captainamerica" />
 
-    <TextView
-        android:id="@+id/tvGambledCoins3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="39dp"
-        android:text="0"
-        android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/tvCharacterName3"
-        app:layout_constraintTop_toBottomOf="@+id/sbCharacter2" />
-
     <SeekBar
         android:id="@+id/sbCharacter3"
         android:layout_width="263dp"
@@ -37,14 +26,14 @@
         android:layout_marginTop="9dp"
         android:background="#F3815D"
         app:layout_constraintStart_toEndOf="@+id/ivCharacter3"
-        app:layout_constraintTop_toBottomOf="@+id/tvGambledCoins3" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCharacterName3" />
 
     <TextView
         android:id="@+id/tvCharacterName3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="41dp"
         android:text="TextView"
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/ivCharacter3"
@@ -78,26 +67,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cbCharacter1" />
 
-    <TextView
-        android:id="@+id/tvGambledCoins2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="47dp"
-        android:text="0"
-        android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/tvCharacterName2"
-        app:layout_constraintTop_toBottomOf="@+id/sbCharacter1" />
-
     <SeekBar
         android:id="@+id/sbCharacter2"
         android:layout_width="263dp"
         android:layout_height="32dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="11dp"
         android:background="#F3815D"
         app:layout_constraintStart_toEndOf="@+id/ivCharacter2"
-        app:layout_constraintTop_toBottomOf="@+id/tvGambledCoins2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCharacterName2" />
 
     <TextView
         android:id="@+id/tvCharacterName2"
@@ -201,17 +179,6 @@
         android:text="TextView"
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/ivCharacter1"
-        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
-
-    <TextView
-        android:id="@+id/tvGambledCoins1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="47dp"
-        android:text="0"
-        android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/tvCharacterName1"
         app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 
     <CheckBox
